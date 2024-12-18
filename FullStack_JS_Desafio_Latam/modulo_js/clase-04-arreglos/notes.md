@@ -1,3 +1,5 @@
+## Clase 04 Arrays
+
 # Conceptos básicos de arreglos en JavaScript
 
 Un **arreglo** (o array) en JavaScript es una estructura de datos que permite almacenar una colección ordenada de elementos. Estos elementos pueden ser de cualquier tipo: números, cadenas, objetos, otros arreglos, etc.
@@ -331,3 +333,133 @@ let i = 0: Aquí se inicializa la variable de control i con el valor 0.
 i < 3: Esta es la condición. Mientras i sea menor que 3, el ciclo se ejecutará.
 
 i++: Esto actualiza la variable de control, incrementando su valor en 1 después de cada iteración.
+
+---
+
+## Diferencia entre el ciclo for...of y el ciclo for tradicional
+
+Ciclo for tradicional
+
+El ciclo for tradicional en JavaScript tiene esta estructura:
+
+```javascript
+for (inicialización; condición; actualización) {
+  // Código que se ejecuta en cada iteración
+}
+//Ejemplo de un ciclo for tradicional:
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
+
+Ciclo for...of
+
+Es una forma más sencilla de recorrer los elementos de un arreglo o cualquier otro objeto iterable (como cadenas, mapas, conjuntos, etc.). La estructura es:
+
+```javascript
+for (let item of arreglo) {
+  // Código que se ejecuta con cada elemento del arreglo
+}
+
+//ejemplo ciclo for ..of
+const data = ["Javiera", "Camila", "Francisco"];
+for (let item of data) {
+  console.log(item);
+}
+```
+
+- No necesitas inicializar una variable de índice ni comprobar una condición. El ciclo recorre directamente cada elemento del arreglo data.
+- El ciclo se detiene automáticamente cuando ya no quedan elementos.
+
+**_Resumen_**
+
+- for tradicional: Se define un índice, una condición y una actualización explícita en cada iteración.
+- for...of: Se utiliza cuando solo quieres recorrer los elementos de un arreglo (o cualquier objeto iterable), sin preocuparte por el índice o las condiciones manualmente.
+
+---
+
+## Resumen conceptos: Array - Object - Arreglo de objetos
+
+1. Arreglo (Array)
+
+Un arreglo es una lista ordenada de valores que pueden ser de cualquier tipo (números, strings, objetos, etc.). Cada valor en un arreglo tiene una posición (índice) que comienza en 0.
+
+```javascript
+const frutas = ["manzana", "plátano", "uva", "kiwi"];
+
+console.log(frutas[0]); // "manzana" (índice 0)
+console.log(frutas[2]); // "uva" (índice 2)
+frutas.push("naranja"); // Agrega un elemento al final
+console.log(frutas); // ["manzana", "plátano", "uva", "kiwi", "naranja"]
+```
+
+Características clave:
+
+- Es una colección ordenada.
+- Accedes a los elementos mediante índices numéricos.
+- Métodos comunes: push(), pop(), forEach(), map().
+
+2. Objeto (Object)
+
+Un objeto es una estructura que almacena datos en pares clave-valor. Las claves son strings (o símbolos) y permiten acceder a los valores asociados.
+
+Ejemplo de objeto:
+
+```javascript
+const persona = {
+  nombre: "Rodrigo",
+  edad: 30,
+  profesion: "Desarrollador",
+  saludar: function () {
+    return `Hola, soy ${this.nombre} y tengo ${this.edad} años.`;
+  },
+};
+
+console.log(persona.nombre); // "Rodrigo"
+console.log(persona["profesion"]); // "Desarrollador"
+console.log(persona.saludar()); // "Hola, soy Rodrigo y tengo 30 años."
+```
+
+Características clave:
+
+- Almacena información estructurada mediante claves y valores.
+
+- Puedes acceder a los valores con la notación punto (objeto.propiedad) o corchetes (objeto["propiedad"]).
+
+- Métodos y funciones pueden estar dentro del objeto.
+
+3. Arreglo de objetos
+
+Un arreglo de objetos es una combinación de los dos anteriores: un arreglo que contiene varios objetos. Es útil cuando quieres manejar una lista de elementos con múltiples propiedades.
+
+Ejemplo de arreglo de objetos:
+
+```javascript
+
+const productos = [
+{ id: 1, nombre: "Cafetera", precio: 23990, color: "rojo" },
+{ id: 2, nombre: "Tostadora", precio: 15990, color: "blanco" },
+{ id: 3, nombre: "Licuadora", precio: 29990, color: "negro" }
+];
+
+// Acceder al primer objeto
+console.log(productos[0].nombre); // "Cafetera"
+
+// Recorrer el arreglo de objetos
+productos.forEach((producto) => {
+console.log(`${producto.nombre} cuesta $${producto.precio} y es de color ${producto.color}`);
+});
+
+Salida:
+Cafetera cuesta $23990 y es de color rojo
+Tostadora cuesta $15990 y es de color blanco
+Licuadora cuesta $29990 y es de color negro
+
+```
+
+Características clave:
+
+- Cada elemento del arreglo es un objeto.
+- Permite organizar múltiples objetos de manera ordenada.
+- Puedes usar métodos como forEach(), map() o filter() para recorrer y manipular el arreglo.
